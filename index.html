@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" 
+      type="image/png" 
+      href="source.png">
+<!-- ios support -->
+<meta name="theme-color" content="#db4938" />
+    <title>Dev'Coffee PWA</title>
+  </head>
+  <body>
+    <main>
+      <nav>
+        <h1>Dev'Coffee</h1>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Blog</li>
+        </ul>
+      </nav>
+      <div class="container"></div>
+    </main>
+    <p>Current permission status is <b id="status">unavailable</b>.</p>
+
+    <p><button onclick="requestPermission()">Request permission</button></p>
+    <p><button onclick="nonPersistentNotification()">Non-persistent notification</button></p>
+    <p><button onclick="persistentNotification()">Persistent notification</button></p>
+    <script src="./app.js"></script>
+  </body>
+
+  <script>
+ 
+ 
+ 
+    var $status = document.getElementById('status');
+   
+   if ('Notification' in window) {
+     $status.innerText = Notification.permission;
+   }
+   
+   function requestPermission() {
+     if (!('Notification' in window)) {
+       alert('Notification API not supported!');
+       return;
+     }
+     
+     Notification.requestPermission(function (result) {
+       $status.innerText = result;
+     });
+   }
+   
+   function nonPersistentNotification() {
+     if (!('Notification' in window)) {
+       alert('Notification API not supported!');
+       return;
+     }
+     
+     try {
+       var notification = new Notification("Hi there - non-persistent!");
+     } catch (err) {
+       alert('Notification API error: ' + err);
+     }
+   }
+   
+   function persistentNotification() {
+     if (!('Notification' in window) || !('ServiceWorkerRegistration' in window)) {
+       alert('Persistent Notification API not supported!');
+       return;
+     }
+   
+     try {
+     navigator.serviceWorker.getRegistration()
+         .then((reg) => console.log(reg))
+         .catch((err) => alert('Service Worker registration error: ' + err));
+     } catch (err) {
+       alert('Notification API error: ' + err);
+     }
+   }
+   
+   </script>
+
+
+</html>
+
+

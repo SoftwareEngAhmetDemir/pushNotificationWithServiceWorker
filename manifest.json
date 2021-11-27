@@ -1,0 +1,44 @@
+{
+    "name": "My app",
+  "short_name": "MYP",
+  "theme_color": "#2196f3",
+  "background_color": "#2196f3",
+  "display": "browser",
+  "Scope": "/",
+  "start_url": "/",
+    "icons": [
+      {
+        "src": "./https://media.istockphoto.com/photos/mosque-and-bosphorus-bridge-picture-id1283504873?b=1&k=20&m=1283504873&s=170667a&w=0&h=nPfB3oltsXGPYnWkmxCmP0dhCQ8dJ9DZpaMBc1aBQyw=",
+        "type": "image/jpeg", "sizes": "72x72"
+      },
+      {
+        "src": "./source.png",
+        "type": "image/png", "sizes": "96x96"
+      },
+      {
+        "src": "./source.gif",
+        "type": "image/png","sizes": "128x128"
+      },
+      {
+        "src": "./source.png",
+        "type": "image/png", "sizes": "144x144"
+      },
+      {
+        "src": "./source.png",
+        "type": "image/png", "sizes": "152x152"
+      },
+      {
+        "src": "./source.png",
+        "type": "image/png", "sizes": "192x192"
+      },
+      {
+        "src": "./source.png",
+        "type": "image/png", "sizes": "384x384"
+      },
+      {
+        "src": "./source.png",
+        "type": "image/png", "sizes": "512x512"
+      }
+    ],
+    "splash_pages": null
+  }
